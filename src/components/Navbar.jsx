@@ -7,7 +7,7 @@ const Navbar = ({ name, labs, controller }) => {
 
   const buttons = labs.map((item) => (
     <button
-      className="mt-1 text-black hover:text-red-400 hover:transition-colors transition-colors"
+      className="mt-3 p-1 text-black hover:text-red-400 hover:transition-colors transition-colors text-left border-b-2 border-white"
       onClick={() => buttonClick(item.elem)}
     >
       {item.name}

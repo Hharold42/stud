@@ -1,16 +1,16 @@
 /* global BigInt */
 
-function millerRabin(n, k = 5) {
+function millerRabin(n, k) {
   const time = performance.now();
 
   if (n <= 1) {
-    return [false, time - performance.now()];
+    return [false, performance.now() - time];
   }
   if (n === 2 || n === 3) {
-    return [true, time - performance.now()];
+    return [true, performance.now() - time];
   }
   if (n % 2 === 0) {
-    return [false, time - performance.now()];
+    return [false, performance.now() - time];
   }
 
   // Представляем n - 1 в виде (2^r) * d
@@ -34,17 +34,17 @@ function millerRabin(n, k = 5) {
     for (let j = 0; j < r - 1; j++) {
       x = x ** BigInt(2) % BigInt(n); // Возведение в квадрат по модулю n
       if (x === BigInt(n - 1)) {
-        isComposite = [false, time - performance.now()];
+        isComposite = false;
         break;
       }
     }
 
     if (isComposite) {
-      return [false, time - performance.now()]; // n составное
+      return [false, performance.now() - time]; // n составное
     }
   }
 
-  return [true, time - performance.now()]; // n вероятно простое
+  return [true, performance.now() - time]; // n вероятно простое
 }
 
 export default millerRabin;

@@ -4,13 +4,17 @@ import PlaceHolder from "./PlaceHolder";
 import Cesar from "./labs/Cesar";
 import RSA from "./labs/RSA";
 import Strassen from "./labs/Strassen";
+import ECDH from "./labs/ECDH";
+import WilliamsP1Algorithm from "./labs/Williamsp1";
 
 const ZI = () => {
   const [currentLab, setCurrentLab] = useState(<PlaceHolder />);
   const navData = [
     { name: "Шифр цезаря", elem: <Cesar /> },
     { name: "RSA", elem: <RSA /> },
-    { name: "Алгоритм Соловея — Штрассена", elem: <Strassen /> },
+    { name: "Штрассен и Миллер", elem: <Strassen /> },
+    { name: "ECDH", elem: <ECDH /> },
+    { name: "Утльямс p + 1", elem: <WilliamsP1Algorithm /> },
   ];
 
   return (

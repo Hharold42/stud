@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import solovoyStrassen from "../../utils/strassenAlgh";
 import millerA from "../../utils/millerAlgh";
 
@@ -17,8 +17,8 @@ const Strassen = () => {
   };
 
   const buttonHandler = (e) => {
-    setStrassen(() => solovoyStrassen(n, k).join("\n"));
-    setMiller(() => millerA(n, k));
+    setStrassen(() => solovoyStrassen(n, k).join("\n") + "мс");
+    setMiller(() => millerA(n, k).join("\n") + "мс");
   };
 
   return (
@@ -44,7 +44,7 @@ const Strassen = () => {
         </div>
         <div className="flex flex-col mt-2">
           <label>Миллера</label>
-          <textarea disabled className="bg-white" value={miller.join("\n")} />
+          <textarea disabled className="bg-white" value={miller} />
         </div>
       </div>
     </div>

@@ -6,3 +6,26 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.text-3d {
+  position: relative;
+  perspective: 1000px;
+}
+
+.text-3d::before {
+  content: attr(data-text);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  color: rgba(0, 0, 0, 0.3);
+  transform: translateZ(-8px);
+}
+
+.text-3d::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  color: rgba(255, 255, 255, 0.3);
+  transform: translateZ(8px);
+}

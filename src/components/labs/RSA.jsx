@@ -32,21 +32,21 @@ const RSA = () => {
   };
 
   return (
-    <div className="w-[100%] flex flex-col items-center m-5">
-      <div className="bg-slate-400 p-5">
+    <div className="w-full flex flex-col items-center mt-5">
+      <div className="bg-red-500 p-5">
         <div className="flex flex-col mt-2">
-          <label>P</label>
-          <input type="text" value={p} id="p" onChange={inputHandler} />
+          <label className="text-white">P</label>
+          <input type="text" value={p} id="p" onChange={inputHandler} className="bg-red-100 text-red-900 px-2 py-1 mt-1" />
         </div>
         <div className="flex flex-col mt-2">
-          <label>Q</label>
-          <input type="text" value={q} id="q" onChange={inputHandler} />
+          <label className="text-white">Q</label>
+          <input type="text" value={q} id="q" onChange={inputHandler} className="bg-red-100 text-red-900 px-2 py-1 mt-1" />
         </div>
         <div className="flex flex-col mt-2">
-          <label>Сообщение</label>
-          <input value={message} id="msg" onChange={inputHandler} />
+          <label className="text-white">Сообщение</label>
+          <input value={message} id="msg" onChange={inputHandler} className="bg-red-100 text-red-900 px-2 py-1 mt-1" />
           <button
-            className="border-black border-2 p-1 mt-2"
+            className="border-black border-2 p-1 mt-2 bg-red-200 text-red-900"
             id="e"
             onClick={buttonHandler}
           >
@@ -54,16 +54,16 @@ const RSA = () => {
           </button>
         </div>
         <div className="flex flex-col mt-2">
-          <label>Зашифрованное сообщение</label>
+          <label className="text-white">Зашифрованное сообщение</label>
           <textarea
             value={crypt}
             id="crypt"
             onChange={inputHandler}
             disabled
-            className="bg-white"
+            className="bg-white text-red-900 px-2 py-1 mt-1"
           />
           <button
-            className="border-black border-2 p-1 mt-2"
+            className="border-black border-2 p-1 mt-2 bg-red-200 text-red-900"
             id="d"
             onClick={buttonHandler}
           >
@@ -71,13 +71,13 @@ const RSA = () => {
           </button>
         </div>
         <div className="flex flex-col mt-2">
-          <label>Расшифрованное сообщение сообщение</label>
+          <label className="text-white">Расшифрованное сообщение</label>
           <textarea
             value={decrypt}
             id="decrypt"
             onChange={inputHandler}
             disabled
-            className="bg-white"
+            className="bg-white text-red-900 px-2 py-1 mt-1"
           />
         </div>
       </div>
