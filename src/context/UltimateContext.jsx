@@ -11,6 +11,7 @@ export const useUltimate = () => useContext(UltimateContext);
 const UltimateProvider = ({ children }) => {
   const [tiles, setTiles] = useState(null);
   const [endGame, setEndGame] = useState(false);
+  const [minesCount, setMineCount] = useState(0);
 
   const tilesRef = useRef(null);
   tilesRef.current = tiles;
@@ -18,6 +19,7 @@ const UltimateProvider = ({ children }) => {
   const generateMines = (level, size) => {
     const minePercent = [0.15, 0.25, 0.35];
     const numMines = Math.floor(minePercent[level] * size * size);
+    setMineCount(numMines);
 
     const mines = new Set();
 
@@ -171,6 +173,12 @@ const UltimateProvider = ({ children }) => {
     setTiles(matrix);
   };
 
+  const openAll = () => {
+    setTiles((prev) =>
+      prev.map((row) => row.map((item) => ({ ...item, closed: false })))
+    );
+  };
+
   useEffect(() => {
     console.log(tiles);
   }, [tiles]);
@@ -192,6 +200,8 @@ const UltimateProvider = ({ children }) => {
     openTile,
     endGame,
     setEndGame,
+    openAll,
+    minesCount,
   };
 
   return (

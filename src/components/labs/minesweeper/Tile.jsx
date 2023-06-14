@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { useUltimate } from "../../../context/UltimateContext";
 
 const Tile = ({ type, x, y, closed, number }) => {
-  const { openTile, setEndGame } = useUltimate();
-  const styles = closed
-    ? "bg-slate-400"
-    : type === "mine"
-    ? "bg-red-700"
-    : "bg-green-500";
+  const [marked, setMarked] = useState(false);
+
+  const handleRC = (e) => {
+    e.preventDefault();
+    if (!closed) return;
+
+    setMarked((prev) => !prev);
+  };
+
+  const { openTile, setEndGame, openAll } = useUltimate();
+  const getColorClasses = () => {
+    if (closed) {
+      return "bg-gray-400";
+    } else if (type === "mine") {
+      return "bg-red-500";
+    } else {
+      return "bg-green-500";
+    }
+  };
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -17,13 +30,17 @@ const Tile = ({ type, x, y, closed, number }) => {
     if (type === "mine") {
       setTimeout(() => setEndGame(true), 500);
       alert("Гейм овер");
+      openAll();
     }
   };
 
   return (
     <div
-      className={`h-10 w-10 border-2 border-slate-300 text-center ${styles}`}
+      className={`flex items-center justify-center w-12 h-12 ${getColorClasses()} text-white text-lg font-bold border  rounded shadow ${
+        marked ? "border-red-800" : "border-gray-300"
+      }`}
       onClick={handleClick}
+      onContextMenu={handleRC}
     >
       {closed ? null : number}
     </div>
