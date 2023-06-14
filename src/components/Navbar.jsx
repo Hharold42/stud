@@ -15,7 +15,7 @@ const Navbar = ({ name, labs, controller }) => {
   ));
 
   return (
-    <div className="w-[140px] bg-slate-500 bottom-0 h-[100%] p-2">
+    <div className="w-[170px] bg-slate-500 bottom-0 h-[100%] p-2">
       <h3 className="text-white border-b-2 border-black p-1">{name}</h3>
       {buttons}
     </div>

@@ -1,70 +1,26 @@
-# Getting Started with Create React App
+Design the grid: Minesweeper is played on a grid of cells. Decide on the size of the grid, the number of mines, and the dimensions of each cell.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Create the grid: In your chosen programming language, create a data structure to represent the grid. This can be a 2D array or a collection of objects.
 
-## Available Scripts
+Place mines: Randomly distribute the mines across the grid. Make sure you don't place more mines than the specified number.
 
-In the project directory, you can run:
+Calculate mine counts: For each cell that doesn't contain a mine, calculate the number of neighboring cells that do contain mines. This number represents the clue for that cell.
 
-### `npm start`
+Display the grid: Show the initial state of the grid to the player. Each cell can be represented by a character or an image, depending on your user interface.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Handle user input: Implement the logic to handle user input. Allow the player to select a cell or flag it as a potential mine. When the player selects a cell, reveal its content (mine or clue) and update the display.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Handle game rules: Implement the rules of Minesweeper. If the player selects a mine, the game ends. If the player selects a clue, reveal the neighboring cells recursively until a cell with adjacent mines is reached.
 
-### `npm test`
+Game loop: Set up a loop that continues until the game ends. Inside the loop, continually prompt the player for input and update the grid accordingly.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+End game: When the game ends, reveal the entire grid to the player. Optionally, display a message indicating whether the player won or lost.
 
-### `npm run build`
+Optional features: You can enhance your Minesweeper implementation by adding additional features, such as a timer, a scoring system, different difficulty levels, or a graphical user interface.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Beginner level: For a small grid, such as 9x9 or 8x8, you can start with around 10% to 15% of the total cells being mines. So, for a 9x9 grid, you could have 10 to 15 mines.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Intermediate level: For a medium-sized grid, like 16x16 or 12x12, you can increase the number of mines to around 20% to 25% of the total cells. For example, a 16x16 grid can have approximately 40 to 64 mines.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Expert level: For larger grids, such as 30x16 or 20x20, you can have a higher percentage of mines, ranging from 25% to 35%. So, for a 30x16 grid, you could have around 120 to 168 mines.
